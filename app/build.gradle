@@ -1,16 +1,25 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "24.0.0 rc1"
+    compileSdkVersion 'android-N'
+    buildToolsVersion "24.0.0-rc2"
 
     defaultConfig {
         applicationId "com.sethkroger.funfactslambda"
         minSdkVersion 10
-        targetSdkVersion 23
+        targetSdkVersion 'N'
         versionCode 1
         versionName "1.0"
+        jackOptions {
+            enabled true
+        }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     buildTypes {
         release {
             minifyEnabled false
