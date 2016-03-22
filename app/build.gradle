@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 'android-N'
+    compileSdkVersion 23
     buildToolsVersion "24.0.0-rc2"
 
     defaultConfig {
         applicationId "com.sethkroger.funfactslambda"
         minSdkVersion 10
-        targetSdkVersion 'N'
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
         jackOptions {
