@@ -26,18 +26,14 @@ public class FunFactsActivity extends Activity {
         mLayout = (RelativeLayout) findViewById(R.id.FunFactsLayout);
         final TextView factLabel = (TextView) findViewById(R.id.fact);
         final Button showFactButton = (Button) findViewById(R.id.button);
-        View.OnClickListener listener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String fact = mFactBook.getFact();
-                // Update the label with our dynamic fact
-                factLabel.setText(fact);
-                int color = mColorWheel.getColor();
-                mLayout.setBackgroundColor(color);
-                showFactButton.setTextColor(color);
-            }
-        };
-        showFactButton.setOnClickListener(listener);
+        showFactButton.setOnClickListener(v -> {
+            String fact = mFactBook.getFact();
+            // Update the label with our dynamic fact
+            factLabel.setText(fact);
+            int color = mColorWheel.getColor();
+            mLayout.setBackgroundColor(color);
+            showFactButton.setTextColor(color);
+        });
 
         // Toast.makeText(this, "Yay! Our Activity was created!", Toast.LENGTH_LONG).show();
         Log.d(TAG, "We're logging from the onCreate() method.");
