@@ -33,7 +33,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Show Another Fun Fact"
+        android:layout_marginBottom="2dp"
         android:id="@+id/button"
+        android:layout_above="@+id/special_button"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/white"
+        android:textColor="#ff51b46d"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show a Special Fun Fact"
+        android:id="@id/special_button"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@android:color/white"

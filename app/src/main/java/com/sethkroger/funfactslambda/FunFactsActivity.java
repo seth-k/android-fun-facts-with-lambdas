@@ -16,6 +16,9 @@ public class FunFactsActivity extends Activity {
     private ColorWheel mColorWheel = new ColorWheel();
     private RelativeLayout mLayout;
     public static final String TAG = FunFactsActivity.class.getSimpleName();
+    private TextView mFactLabel;
+    private Button mShowFactButton;
+    private Button mSpecialFactButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,18 +27,30 @@ public class FunFactsActivity extends Activity {
 
         // Declare our view variables and assign the Views from the layout
         mLayout = (RelativeLayout) findViewById(R.id.FunFactsLayout);
-        final TextView factLabel = (TextView) findViewById(R.id.fact);
-        final Button showFactButton = (Button) findViewById(R.id.button);
-        showFactButton.setOnClickListener(v -> {
+        mFactLabel = (TextView) findViewById(R.id.fact);
+        mShowFactButton = (Button) findViewById(R.id.button);
+        mSpecialFactButton = (Button) findViewById(R.id.special_button);
+        mShowFactButton.setOnClickListener(v -> {
             String fact = mFactBook.getFact();
             // Update the label with our dynamic fact
-            factLabel.setText(fact);
+            mFactLabel.setText(fact);
             int color = mColorWheel.getColor();
             mLayout.setBackgroundColor(color);
-            showFactButton.setTextColor(color);
+            mShowFactButton.setTextColor(color);
+            mSpecialFactButton.setTextColor(color);
         });
+        mSpecialFactButton.setOnClickListener(this::showSpecialFact);
 
         // Toast.makeText(this, "Yay! Our Activity was created!", Toast.LENGTH_LONG).show();
         Log.d(TAG, "We're logging from the onCreate() method.");
+    }
+
+    public void showSpecialFact(View v) {
+        mFactLabel.setText("You can now use Java 8 lambdas and method references in Android.");
+        int color = mColorWheel.getColor();
+        mLayout.setBackgroundColor(color);
+        mShowFactButton.setTextColor(color);
+        mSpecialFactButton.setTextColor(color);
+
     }
 }
